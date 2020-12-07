@@ -1,0 +1,6 @@
+{
+"httpPort": 8000,
+"GraphqlEndpoint": "/",
+"GraphqlIde": true,
+"GraphqlPretty": true
+}

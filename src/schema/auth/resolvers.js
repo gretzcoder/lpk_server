@@ -10,7 +10,7 @@ export async function signUpResolver(parentValue, { ...args }) {
 		foto: path.join(__dirname, '../../files/fotoProfile/default.png'),
 	})
 
-	const token = jwt.sign({ account }, 'Sup3rDup3rR4h4514')
+	const token = jwt.sign({ account }, 'Sup3rDup3rR4h4514', { expiresIn: '24h' })
 	return {
 		lastRecord,
 		token,
@@ -27,7 +27,9 @@ export async function loginResolver(parentValue, { ...args }) {
 	} else if (!bcrypt.compareSync(args.password, account.password)) {
 		throw new Error('Password tidak sesuai')
 	} else {
-		const token = jwt.sign({ account }, 'Sup3rDup3rR4h4514')
+		const token = jwt.sign({ account }, 'Sup3rDup3rR4h4514', {
+			expiresIn: '24h',
+		})
 		return {
 			account,
 			token,

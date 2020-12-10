@@ -11,6 +11,7 @@ module.exports = {
 			'Participant',
 			'Chapter',
 			'TestType',
+			'TrainingType',
 			'TrainingClass',
 			'Score',
 			'ProgramTimeline',
@@ -27,18 +28,26 @@ module.exports = {
 					{
 						id: (j = j + 1),
 						permission: 'c' + tables[i],
+						created_at: '2021-01-01 00:00:00',
+						updated_at: '2021-01-01 00:00:00',
 					},
 					{
 						id: (j = j + 1),
 						permission: 'r' + tables[i],
+						created_at: '2021-01-01 00:00:00',
+						updated_at: '2021-01-01 00:00:00',
 					},
 					{
 						id: (j = j + 1),
 						permission: 'u' + tables[i],
+						created_at: '2021-01-01 00:00:00',
+						updated_at: '2021-01-01 00:00:00',
 					},
 					{
 						id: (j = j + 1),
 						permission: 'd' + tables[i],
+						created_at: '2021-01-01 00:00:00',
+						updated_at: '2021-01-01 00:00:00',
 					},
 				],
 				{}

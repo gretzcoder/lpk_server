@@ -55,11 +55,26 @@ export async function rPermission(parentValue, { ...args }, context) {
 }
 
 export async function getById(parentValue, { ...args }, context) {
-	const userData = getUserData(context)
-
 	if (parentValue != null) {
+		if (parentValue.from == 'permission') {
+			delete parentValue.from
+
+			const role = await models.permission.findOne({
+				where: parentValue,
+				attributes: [],
+				include: [
+					{
+						model: models.role,
+					},
+				],
+			})
+
+			return role.roles
+		}
 		return await models.role.findOne({ where: parentValue })
 	}
+
+	const userData = getUserData(context)
 
 	return await models.role.findOne({ where: { id: userData.roleId } })
 }

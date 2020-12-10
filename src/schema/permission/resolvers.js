@@ -27,8 +27,6 @@ export async function getAll(parentValue, { ...args }, context) {
 }
 
 export async function getById(parentValue, { ...args }, context) {
-	const userData = getUserData(context)
-
 	if (parentValue != null) {
 		const permission = await models.role.findOne({
 			where: parentValue,
@@ -42,6 +40,8 @@ export async function getById(parentValue, { ...args }, context) {
 
 		return permission.permissions
 	}
+
+	const userData = getUserData(context)
 
 	const permission = await models.role.findOne({
 		where: { id: userData.roleId },

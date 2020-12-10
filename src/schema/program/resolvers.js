@@ -57,6 +57,9 @@ export async function create(parentValue, { ...args }, context) {
 	const userData = getUserData(context)
 	await getPermission(userData, 'cProgram')
 
+	args.createdBy = userData.id
+	args.lastUpdatedBy = userData.id
+
 	if (args.fotoProgram != null) {
 		const { createReadStream, mimetype } = await args.fotoProgram
 		const ext = mimetype.split('/')
@@ -92,6 +95,8 @@ export async function create(parentValue, { ...args }, context) {
 export async function update(parentValue, { ...args }, context) {
 	const userData = getUserData(context)
 	await getPermission(userData, 'uProgram')
+
+	args.lastUpdatedBy = userData.id
 
 	const id = args.id
 	delete args.id

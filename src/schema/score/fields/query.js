@@ -45,9 +45,3 @@ export const scores = {
 	},
 	resolve: getAll,
 }
-
-export const score = {
-	type: new GraphQLList(ScoreType),
-
-	resolve: getById,
-}

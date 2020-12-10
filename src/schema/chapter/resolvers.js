@@ -26,10 +26,8 @@ export async function getAll(parentValue, { ...args }, context) {
 	})
 }
 
-export async function getById(parentValue, { ...args }, context) {
-	const userData = getUserData(context)
-
-	return await models.chapter.findOne({ where: parentValue || args })
+export async function getById(parentValue, { ...args }) {
+	return await models.chapter.findAll({ where: parentValue })
 }
 
 export async function create(parentValue, { ...args }, context) {

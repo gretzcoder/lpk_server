@@ -10,7 +10,7 @@ import { orderByType } from '../tools'
 
 //relation
 import RoleType from '../role/type'
-import { getAll } from '../role/resolvers'
+import { getById as getRoles } from '../role/resolvers'
 
 const PermissionType = new GraphQLObjectType({
 	name: 'permission',
@@ -49,8 +49,8 @@ const PermissionType = new GraphQLObjectType({
 					}),
 				},
 			},
-			resolve(parent, args, context) {
-				return getAll({ roleId: parent.id }, args, context)
+			resolve(parent, args) {
+				return getRoles({ from: 'permission', id: parent.id }, args)
 			},
 		},
 	}),

@@ -31,25 +31,8 @@ export async function getAll(parentValue, { ...args }, context) {
 	})
 }
 
-export async function getById(parentValue, { ...args }) {
-	const userData = getUserData(context)
-
-	if (parentValue != null) {
-		return await models.trainingClass.findOne({ where: parentValue })
-	}
-
-	if (userData.roleId == 2) {
-		const participantData = await getParticipantData(userData.id)
-		return await models.trainingClass.findAll({
-			where: { participantId: participantData.id },
-		})
-	} else if (userData.roleId == 5) {
-		return await models.trainingClass.findAll({
-			where: { trainerId: userData.id },
-		})
-	} else {
-		throw new Error('Forbidden')
-	}
+export async function getById(parentValue, { ...args }, context) {
+	return await models.score.findAll({ where: parentValue })
 }
 
 export async function create(parentValue, { ...args }, context) {

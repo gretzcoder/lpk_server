@@ -10,7 +10,7 @@ import { orderByType } from '../tools'
 
 //relation
 import ScoreType from '../score/type'
-import { getAll as getAllScore } from '../score/resolvers'
+import { getById as getScores } from '../score/resolvers'
 import TrainingTypeType from '../trainingType/type'
 import { getById as getTrainingType } from '../trainingType/resolvers'
 import participantType from '../participant/type'
@@ -32,8 +32,9 @@ const trainingClassType = new GraphQLObjectType({
 				offset: { type: GraphQLInt },
 				filters: {
 					type: new GraphQLInputObjectType({
-						name: 'filtersScoresFromRole',
+						name: 'filtersScoresFromTrainingClass',
 						fields: {
+							id: { type: GraphQLID },
 							nilai: { type: GraphQLInt },
 							updatedAt: { type: GraphQLString },
 							createdAt: { type: GraphQLString },
@@ -42,7 +43,7 @@ const trainingClassType = new GraphQLObjectType({
 				},
 				orderBy: {
 					type: new GraphQLInputObjectType({
-						name: 'orderByScoresFromRole',
+						name: 'orderByScoresFromTrainingClass',
 						fields: {
 							id: { type: orderByType },
 							nilai: { type: orderByType },
@@ -53,7 +54,7 @@ const trainingClassType = new GraphQLObjectType({
 				},
 			},
 			resolve(parent, args) {
-				return getAllScore({ trainingClassId: parent.id }, args)
+				return getScores({ trainingClassId: parent.id }, args)
 			},
 		},
 		trainingType: {
@@ -63,13 +64,13 @@ const trainingClassType = new GraphQLObjectType({
 			},
 		},
 		participant: {
-			type: participantType,
+			type: GraphQLList(participantType),
 			resolve(parent, args) {
 				return getParticipant(parent.participantId)
 			},
 		},
 		trainer: {
-			type: accountType,
+			type: GraphQLList(accountType),
 			resolve(parent, args) {
 				return getTrainer(parent.trainerId)
 			},

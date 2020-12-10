@@ -1,4 +1,9 @@
-import { GraphQLObjectType, GraphQLString, GraphQLID } from 'graphql'
+import {
+	GraphQLObjectType,
+	GraphQLString,
+	GraphQLID,
+	GraphQLList,
+} from 'graphql'
 
 //relation
 import ParticipantType from '../participant/type.js'
@@ -8,6 +13,7 @@ import { getById as getAccount } from '../account/resolvers.js'
 
 const FileType = new GraphQLObjectType({
 	name: 'file',
+	description: 'File that come with participant data',
 
 	fields: () => ({
 		id: { type: GraphQLID },
@@ -23,15 +29,15 @@ const FileType = new GraphQLObjectType({
 		updatedAt: { type: GraphQLString },
 		createdAt: { type: GraphQLString },
 		participant: {
-			type: ParticipantType,
+			type: GraphQLList(ParticipantType),
 			resolve(parent, args) {
-				return getParticipant(parent.participantId)
+				return getParticipant({ id: parent.participantId })
 			},
 		},
 		selectionBy: {
-			type: AccountType,
+			type: GraphQLList(AccountType),
 			resolve(parent, args) {
-				return getAccount(parent.selectionBy)
+				return getAccount({ id: parent.selectionBy })
 			},
 		},
 	}),

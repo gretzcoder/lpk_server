@@ -26,10 +26,8 @@ export async function getAll(parentValue, { ...args }, context) {
 	})
 }
 
-export async function getById(parentValue, { ...args }, context) {
-	getUserData(context)
-
-	return await models.testType.findOne({ where: parentValue })
+export async function getById(parentValue, { ...args }) {
+	return await models.testType.findAll({ where: parentValue })
 }
 
 export async function create(parentValue, { ...args }, context) {

@@ -3,6 +3,7 @@ import {
 	GraphQLID,
 	GraphQLInt,
 	GraphQLString,
+	GraphQLList,
 } from 'graphql'
 
 //relation
@@ -22,21 +23,21 @@ const scoreType = new GraphQLObjectType({
 		updatedAt: { type: GraphQLString },
 		createdAt: { type: GraphQLString },
 		trainingClass: {
-			type: trainingClassType,
+			type: GraphQLList(trainingClassType),
 			resolve(parent, args) {
-				return getTrainingClass(parent.trainingClassId)
+				return getTrainingClass({ id: parent.trainingClassId })
 			},
 		},
 		chapter: {
-			type: chapterType,
+			type: GraphQLList(chapterType),
 			resolve(parent, args) {
-				return getChapter(parent.chapterId)
+				return getChapter({ id: parent.chapterId })
 			},
 		},
 		testType: {
-			type: testTypeType,
+			type: GraphQLList(testTypeType),
 			resolve(parent, args) {
-				return getTestType(parent.testTypeId)
+				return getTestType({ id: parent.testTypeId })
 			},
 		},
 	}),

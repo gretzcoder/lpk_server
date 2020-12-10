@@ -11,6 +11,8 @@ module.exports = {
 					chapter_id: 1,
 					test_type_id: 1,
 					nilai: 85,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
@@ -18,6 +20,8 @@ module.exports = {
 					chapter_id: 1,
 					test_type_id: 2,
 					nilai: 80,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 3,
@@ -25,6 +29,8 @@ module.exports = {
 					chapter_id: 2,
 					test_type_id: 1,
 					nilai: 80,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 4,
@@ -32,6 +38,8 @@ module.exports = {
 					chapter_id: 2,
 					test_type_id: 2,
 					nilai: 85,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 5,
@@ -39,6 +47,8 @@ module.exports = {
 					chapter_id: 1,
 					test_type_id: 1,
 					nilai: 75,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 6,
@@ -46,6 +56,8 @@ module.exports = {
 					chapter_id: 1,
 					test_type_id: 2,
 					nilai: 70,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 7,
@@ -53,6 +65,8 @@ module.exports = {
 					chapter_id: 2,
 					test_type_id: 1,
 					nilai: 75,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 8,
@@ -60,6 +74,8 @@ module.exports = {
 					chapter_id: 2,
 					test_type_id: 2,
 					nilai: 70,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

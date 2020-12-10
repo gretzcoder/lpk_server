@@ -3,6 +3,7 @@ import {
 	GraphQLString,
 	GraphQLID,
 	GraphQLInt,
+	GraphQLList,
 } from 'graphql'
 
 //relation
@@ -13,6 +14,7 @@ import { getById as getAccount } from '../account/resolvers.js'
 
 const PaymentType = new GraphQLObjectType({
 	name: 'payment',
+	description: 'Payment management to some Program',
 
 	fields: () => ({
 		id: { type: GraphQLID },
@@ -21,15 +23,15 @@ const PaymentType = new GraphQLObjectType({
 		updatedAt: { type: GraphQLString },
 		createdAt: { type: GraphQLString },
 		participant: {
-			type: ParticipantType,
+			type: GraphQLList(ParticipantType),
 			resolve(parent, args) {
-				return getParticipant(parent.participantId)
+				return getParticipant({ id: parent.participantId })
 			},
 		},
 		verifiedBy: {
-			type: AccountType,
+			type: GraphQLList(AccountType),
 			resolve(parent, args) {
-				return getAccount(parent.verifiedBy)
+				return getAccount({ id: parent.verifiedBy })
 			},
 		},
 	}),

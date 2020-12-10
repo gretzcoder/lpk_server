@@ -13,6 +13,8 @@ import ProfileType from '../profile/type'
 import { getById as getProfile } from '../profile/resolvers'
 import RoleType from '../role/type'
 import { getById as getRole } from '../role/resolvers'
+import PermissionType from '../permission/type'
+import { getById as getPermissions } from '../permission/resolvers'
 import ParticipantType from '../participant/type.js'
 import { getById as getParticipants } from '../participant/resolvers.js'
 import ProgramType from '../program/type.js'
@@ -39,32 +41,64 @@ const AccountType = new GraphQLObjectType({
 		updatedAt: { type: GraphQLString },
 		profile: {
 			type: ProfileType,
-			resolve(parent, args, context) {
-				return getProfile({ accountId: parent.id }, args, context)
+			resolve(parent, args) {
+				return getProfile({ accountId: parent.id }, args)
 			},
 		},
 		role: {
 			type: RoleType,
-			resolve(parent, args, context) {
-				return getRole({ id: parent.roleId }, args, context)
+			resolve(parent, args) {
+				return getRole({ id: parent.roleId }, args)
+			},
+		},
+		permissions: {
+			type: new GraphQLList(PermissionType),
+			args: {
+				limit: { type: GraphQLInt },
+				offset: { type: GraphQLInt },
+				filters: {
+					type: new GraphQLInputObjectType({
+						name: 'filtersPermissionsFromAccount',
+						fields: {
+							id: { type: GraphQLID },
+							permission: { type: GraphQLString },
+							updatedAt: { type: GraphQLString },
+							createdAt: { type: GraphQLString },
+						},
+					}),
+				},
+				orderBy: {
+					type: new GraphQLInputObjectType({
+						name: 'orderByPermissionsFromAccount',
+						fields: {
+							id: { type: orderByType },
+							permission: { type: orderByType },
+							updatedAt: { type: orderByType },
+							createdAt: { type: orderByType },
+						},
+					}),
+				},
+			},
+			resolve(parent, args) {
+				return getPermissions({ id: parent.roleId }, args)
 			},
 		},
 		participants: {
 			type: new GraphQLList(ParticipantType),
-			resolve(parent, args, context) {
-				return getParticipants({ accountId: parent.id }, args, context)
+			resolve(parent, args) {
+				return getParticipants({ accountId: parent.id }, args)
 			},
 		},
 		createdProgram: {
 			type: new GraphQLList(ProgramType),
-			resolve(parent, args, context) {
-				return getPrograms({ createdBy: parent.id }, args, context)
+			resolve(parent, args) {
+				return getPrograms({ createdBy: parent.id }, args)
 			},
 		},
 		lastUpdateProgram: {
 			type: new GraphQLList(ProgramType),
-			resolve(parent, args, context) {
-				return getPrograms({ lastUpdatedBy: parent.id }, args, context)
+			resolve(parent, args) {
+				return getPrograms({ lastUpdatedBy: parent.id }, args)
 			},
 		},
 		VerifyCertificates: {
@@ -101,8 +135,8 @@ const AccountType = new GraphQLObjectType({
 					}),
 				},
 			},
-			resolve(parent, args, context) {
-				return getCertificates({ verifiedBy: parent.id }, args, context)
+			resolve(parent, args) {
+				return getCertificates({ verifiedBy: parent.id }, args)
 			},
 		},
 		selectionFiles: {
@@ -151,8 +185,8 @@ const AccountType = new GraphQLObjectType({
 					}),
 				},
 			},
-			resolve(parent, args, context) {
-				return getFiles({ selectionBy: parent.id }, args, context)
+			resolve(parent, args) {
+				return getFiles({ selectionBy: parent.id }, args)
 			},
 		},
 		VerifyPayments: {
@@ -189,43 +223,44 @@ const AccountType = new GraphQLObjectType({
 					}),
 				},
 			},
-			resolve(parent, args, context) {
-				return getPayments({ verifiedBy: parent.id }, args, context)
+			resolve(parent, args) {
+				return getPayments({ verifiedBy: parent.id }, args)
 			},
 		},
-		// trainingClasses: {
-		// 	type: new GraphQLList(TrainingClassType),
-		// 	args: {
-		// 		limit: { type: GraphQLInt },
-		// 		offset: { type: GraphQLInt },
-		// 		filters: {
-		// 			type: new GraphQLInputObjectType({
-		// 				name: 'filtersTrainingCLassesFromAccount',
-		// 				fields: {
-		// 					trainingTypeId: { type: GraphQLID },
-		// 					scoreId: { type: GraphQLID },
-		// 					updatedAt: { type: GraphQLString },
-		// 					createdAt: { type: GraphQLString },
-		// 				},
-		// 			}),
-		// 		},
-		// 		orderBy: {
-		// 			type: new GraphQLInputObjectType({
-		// 				name: 'orderByTrainingClassesFromAccount',
-		// 				fields: {
-		// 					id: { type: orderByType },
-		// 					trainingTypeId: { type: orderByType },
-		// 					scoreId: { type: orderByType },
-		// 					updatedAt: { type: orderByType },
-		// 					createdAt: { type: orderByType },
-		// 				},
-		// 			}),
-		// 		},
-		// 	},
-		// 	resolve(parent, args) {
-		// 		return getTrainingClasses({ trainerId: parent.id }, args)
-		// 	},
-		// },
+		trainerClasses: {
+			type: new GraphQLList(TrainingClassType),
+			args: {
+				limit: { type: GraphQLInt },
+				offset: { type: GraphQLInt },
+				filters: {
+					type: new GraphQLInputObjectType({
+						name: 'filtersTrainingCLassesFromAccount',
+						fields: {
+							id: { type: GraphQLID },
+							trainingTypeId: { type: GraphQLID },
+							scoreId: { type: GraphQLID },
+							updatedAt: { type: GraphQLString },
+							createdAt: { type: GraphQLString },
+						},
+					}),
+				},
+				orderBy: {
+					type: new GraphQLInputObjectType({
+						name: 'orderByTrainingClassesFromAccount',
+						fields: {
+							id: { type: orderByType },
+							trainingTypeId: { type: orderByType },
+							scoreId: { type: orderByType },
+							updatedAt: { type: orderByType },
+							createdAt: { type: orderByType },
+						},
+					}),
+				},
+			},
+			resolve(parent, args) {
+				return getTrainingClasses({ trainerId: parent.id }, args)
+			},
+		},
 	}),
 })
 

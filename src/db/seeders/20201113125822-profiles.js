@@ -18,6 +18,8 @@ module.exports = {
 					pendidikan_terakhir: 'pendidikanTerakhirAdmin',
 					jurusan: 'jurusanAdmin',
 					foto: path.join(__dirname, '../../files/images/profiles/default.png'),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
@@ -30,6 +32,8 @@ module.exports = {
 					pendidikan_terakhir: 'pendidikanTerakhirPengajar',
 					jurusan: 'jurusanPengajar',
 					foto: path.join(__dirname, '../../files/images/profiles/default.png'),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 3,
@@ -42,6 +46,8 @@ module.exports = {
 					pendidikan_terakhir: 'pendidikanTerakhirPenyeleksi',
 					jurusan: 'jurusanPenyeleksi',
 					foto: path.join(__dirname, '../../files/images/profiles/default.png'),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 4,
@@ -54,6 +60,8 @@ module.exports = {
 					pendidikan_terakhir: 'pendidikanTerakhirAdminPembayaran',
 					jurusan: 'jurusanAdminPembayaran',
 					foto: path.join(__dirname, '../../files/images/profiles/default.png'),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 5,
@@ -66,6 +74,8 @@ module.exports = {
 					pendidikan_terakhir: 'pendidikanTerakhirPeserta1',
 					jurusan: 'jurusanPeserta1',
 					foto: path.join(__dirname, '../../files/images/profiles/default.png'),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 6,
@@ -78,6 +88,8 @@ module.exports = {
 					pendidikan_terakhir: 'pendidikanTerakhirPeserta2',
 					jurusan: 'jurusanPeserta2',
 					foto: path.join(__dirname, '../../files/images/profiles/default.png'),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

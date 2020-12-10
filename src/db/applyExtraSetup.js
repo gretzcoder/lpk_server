@@ -109,6 +109,9 @@ export default function (sequelize) {
 	trainingType.hasMany(trainingClass)
 	trainingClass.belongsTo(trainingType)
 
+	trainingType.hasMany(chapter)
+	chapter.belongsTo(trainingType)
+
 	trainingClass.hasMany(score)
 	score.belongsTo(trainingClass)
 

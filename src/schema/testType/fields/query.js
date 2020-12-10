@@ -40,9 +40,3 @@ export const testTypes = {
 	},
 	resolve: getAll,
 }
-
-// export const testType = {
-// 	type: TestTypeType,
-
-// 	resolve: getById,
-// }

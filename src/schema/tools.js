@@ -35,6 +35,10 @@ export function getUserData(context) {
 			if (err) {
 				throw new Error('Token Salah')
 			}
+			if (decoded.exp <= Date.now() / 1000) {
+				throw new Error('Token Expired')
+			}
+
 			return decoded.account
 		}
 	)

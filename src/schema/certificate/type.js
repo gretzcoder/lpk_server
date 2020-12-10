@@ -13,6 +13,8 @@ import { getById as getAccount } from '../account/resolvers.js'
 
 const CertificateType = new GraphQLObjectType({
 	name: 'certificate',
+	description:
+		'Certificate that participant upload after successful get from the test',
 
 	fields: () => ({
 		id: { type: GraphQLID },
@@ -27,9 +29,9 @@ const CertificateType = new GraphQLObjectType({
 			},
 		},
 		verifiedBy: {
-			type: AccountType,
+			type: GraphQLList(AccountType),
 			resolve(parent, args) {
-				return getAccount(parent.verifiedBy)
+				return getAccount({ id: parent.verifiedBy })
 			},
 		},
 	}),

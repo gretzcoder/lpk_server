@@ -23,14 +23,6 @@ export const programCreate = {
 			name: 'fotoProgram',
 			type: GraphQLUpload,
 		},
-		createdBy: {
-			name: 'createdBy',
-			type: GraphQLID,
-		},
-		lastUpdatedBy: {
-			name: 'lastUpdatedBy',
-			type: GraphQLID,
-		},
 	},
 	resolve: create,
 }
@@ -57,10 +49,6 @@ export const programUpdate = {
 		fotoProgram: {
 			name: 'fotoProgram',
 			type: GraphQLUpload,
-		},
-		lastUpdatedBy: {
-			name: 'lastUpdatedBy',
-			type: GraphQLID,
 		},
 	},
 	resolve: update,

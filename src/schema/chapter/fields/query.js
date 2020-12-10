@@ -44,9 +44,3 @@ export const chapters = {
 	},
 	resolve: getAll,
 }
-
-export const chapter = {
-	type: ChapterType,
-
-	resolve: getById,
-}

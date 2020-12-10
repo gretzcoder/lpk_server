@@ -40,9 +40,3 @@ export const trainingTypes = {
 	},
 	resolve: getAll,
 }
-
-// export const trainingType = {
-// 	type: TrainingTypeType,
-
-// 	resolve: getById,
-// }

@@ -17,6 +17,8 @@ module.exports = {
 					skck: 'skck 1',
 					surat_kesehatan: 'surat kesehatan 1',
 					surat_persetujuan_orangtua: 'surat persetujuan orang tua 1',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
@@ -30,6 +32,8 @@ module.exports = {
 					skck: 'skck 2',
 					surat_kesehatan: 'surat kesehatan 2',
 					surat_persetujuan_orangtua: 'surat persetujuan orang tua 2',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

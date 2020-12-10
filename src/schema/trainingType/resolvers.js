@@ -26,9 +26,7 @@ export async function getAll(parentValue, { ...args }, context) {
 	})
 }
 
-export async function getById(parentValue, { ...args }, context) {
-	getUserData(context)
-
+export async function getById(parentValue, { ...args }) {
 	return await models.trainingType.findOne({ where: parentValue })
 }
 

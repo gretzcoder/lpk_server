@@ -13,6 +13,8 @@ module.exports = {
 					foto_program: 'foto_program pertama',
 					created_by: 1,
 					last_updated_by: 1,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
@@ -22,6 +24,8 @@ module.exports = {
 					foto_program: 'foto_program kedua',
 					created_by: 1,
 					last_updated_by: 1,
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

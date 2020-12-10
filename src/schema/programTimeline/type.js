@@ -1,4 +1,9 @@
-import { GraphQLObjectType, GraphQLString, GraphQLID } from 'graphql'
+import {
+	GraphQLObjectType,
+	GraphQLString,
+	GraphQLID,
+	GraphQLList,
+} from 'graphql'
 
 //relation
 import ProgramType from '../program/type.js'
@@ -8,6 +13,7 @@ import { getById as getStage } from '../stage/resolvers.js'
 
 const ProgramTimelineType = new GraphQLObjectType({
 	name: 'programTimeline',
+	description: 'Timelines and Message for some Program',
 
 	fields: () => ({
 		id: { type: GraphQLID },
@@ -19,15 +25,15 @@ const ProgramTimelineType = new GraphQLObjectType({
 		updatedAt: { type: GraphQLString },
 		createdAt: { type: GraphQLString },
 		program: {
-			type: ProgramType,
+			type: GraphQLList(ProgramType),
 			resolve(parent, args) {
-				return getProgram(parent.programId)
+				return getProgram({ id: parent.programId })
 			},
 		},
 		stage: {
 			type: StageType,
 			resolve(parent, args) {
-				return getStage(parent.stageId)
+				return getStage({ id: parent.stageId })
 			},
 		},
 	}),

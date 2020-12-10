@@ -8,22 +8,32 @@ module.exports = {
 				{
 					id: 1,
 					peran: 'Admin',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
 					peran: 'Peserta',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 3,
 					peran: 'Admin Penyeleksi',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 4,
 					peran: 'Admin Pembayaran',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 5,
 					peran: 'Pengajar',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

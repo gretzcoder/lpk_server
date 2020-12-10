@@ -4,8 +4,20 @@ module.exports = (sequelize) => {
 	return sequelize.define(
 		'chapter',
 		{
+			trainingTypeId: {
+				type: DataTypes.INTEGER,
+				unique: 'actions_unique',
+				allowNull: false,
+				validate: {
+					notNull: {
+						args: true,
+						msg: `|trainingClasses_TrainingTypeId|notNull`,
+					},
+				},
+			},
 			pertemuanKe: {
 				type: DataTypes.STRING,
+				unique: 'actions_unique',
 				allowNull: false,
 				validate: {
 					notNull: {
@@ -35,6 +47,13 @@ module.exports = (sequelize) => {
 				},
 			},
 		},
-		{ underscored: true }
+		{ underscored: true },
+		{
+			uniqueKeys: {
+				actions_unique: {
+					fields: ['pertemuanKe', 'trainingTypeId'],
+				},
+			},
+		}
 	)
 }

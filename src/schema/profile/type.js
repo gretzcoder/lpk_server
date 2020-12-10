@@ -27,8 +27,8 @@ const ProfileType = new GraphQLObjectType({
 		createdAt: { type: GraphQLString },
 		account: {
 			type: GraphQLList(AccountType),
-			resolve(parent, args, context) {
-				return getAccount({ id: parent.accountId }, args, context)
+			resolve(parent, args) {
+				return getAccount({ id: parent.accountId }, args)
 			},
 		},
 	}),

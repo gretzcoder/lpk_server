@@ -52,8 +52,8 @@ const RoleType = new GraphQLObjectType({
 					}),
 				},
 			},
-			resolve(parent, args, context) {
-				return getAccounts({ roleId: parent.id }, args, context)
+			resolve(parent, args) {
+				return getAccounts({ roleId: parent.id }, args)
 			},
 		},
 		permissions: {
@@ -84,8 +84,8 @@ const RoleType = new GraphQLObjectType({
 					}),
 				},
 			},
-			resolve(parent, args, context) {
-				return getPermissions({ id: parent.id }, args, context)
+			resolve(parent, args) {
+				return getPermissions({ id: parent.id }, args)
 			},
 		},
 	}),

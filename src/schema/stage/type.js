@@ -9,12 +9,13 @@ import {
 import { orderByType } from '../tools'
 
 import ProgramTimelineType from '../programTimeline/type.js'
-import { getAll as getProgramTimelines } from '../programTimeline/resolvers.js'
+import { getById as getProgramTimelines } from '../programTimeline/resolvers.js'
 import ParticipantType from '../participant/type.js'
-import { getAll as getParticipants } from '../participant/resolvers.js'
+import { getById as getParticipants } from '../participant/resolvers.js'
 
 const stageType = new GraphQLObjectType({
 	name: 'stage',
+	description: 'All Stage in lpk Program',
 
 	fields: () => ({
 		id: { type: GraphQLID },
@@ -30,6 +31,7 @@ const stageType = new GraphQLObjectType({
 					type: new GraphQLInputObjectType({
 						name: 'filtersProgramTimelinesFromStage',
 						fields: {
+							id: { type: GraphQLID },
 							stageId: { type: GraphQLID },
 							dimulai: { type: GraphQLString },
 							berakhir: { type: GraphQLString },
@@ -75,6 +77,7 @@ const stageType = new GraphQLObjectType({
 					type: new GraphQLInputObjectType({
 						name: 'filtersParticipantsFromStage',
 						fields: {
+							id: { type: GraphQLID },
 							tagihan: { type: GraphQLInt },
 							programId: { type: GraphQLID },
 							accountId: { type: GraphQLID },

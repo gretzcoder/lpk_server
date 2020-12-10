@@ -14,10 +14,11 @@ import { getById as getAccount } from '../account/resolvers.js'
 import ProgramTimelineType from '../programTimeline/type.js'
 import { getById as getProgramTimelines } from '../programTimeline/resolvers.js'
 import ParticipantType from '../participant/type.js'
-import { getAll as getParticipants } from '../participant/resolvers.js'
+import { getById as getParticipants } from '../participant/resolvers.js'
 
 const ProgramType = new GraphQLObjectType({
 	name: 'program',
+	description: 'All Program has been Opened and Closed by Admin',
 
 	fields: () => ({
 		id: { type: GraphQLID },
@@ -28,15 +29,15 @@ const ProgramType = new GraphQLObjectType({
 		updatedAt: { type: GraphQLString },
 		createdAt: { type: GraphQLString },
 		createdBy: {
-			type: AccountType,
+			type: GraphQLList(AccountType),
 			resolve(parent, args) {
-				return getAccount(parent.createdBy)
+				return getAccount({ id: parent.createdBy })
 			},
 		},
 		lastUpdatedBy: {
-			type: AccountType,
+			type: GraphQLList(AccountType),
 			resolve(parent, args) {
-				return getAccount(parent.lastUpdatedBy)
+				return getAccount({ id: parent.lastUpdatedBy })
 			},
 		},
 		programTimelines: {

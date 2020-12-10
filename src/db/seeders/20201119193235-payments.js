@@ -11,6 +11,8 @@ module.exports = {
 					verified_by: 4,
 					nominal: 6000000,
 					bukti_transfer: 'bukti_transfer 1',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
@@ -18,6 +20,8 @@ module.exports = {
 					verified_by: 4,
 					nominal: 6000000,
 					bukti_transfer: 'bukti_transfer 2',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

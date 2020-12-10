@@ -14,6 +14,8 @@ module.exports = {
 					pengumuman: '2021-01-07',
 					pesan_lolos: 'selamat registrasi',
 					pesan_gagal: 'maaf registrasi',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
@@ -24,6 +26,8 @@ module.exports = {
 					pengumuman: '2021-02-14',
 					pesan_lolos: 'selamat wawancara dan test',
 					pesan_gagal: 'maaf wawancara dan test',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 3,
@@ -34,6 +38,8 @@ module.exports = {
 					pengumuman: '2021-03-21',
 					pesan_lolos: 'selamat registrasi ulang',
 					pesan_gagal: 'maaf registrasi ulang',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 4,
@@ -44,6 +50,8 @@ module.exports = {
 					pengumuman: '2021-04-26',
 					pesan_lolos: 'selamat pembiayaan',
 					pesan_gagal: 'maaf pembiayaan',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 5,
@@ -54,6 +62,8 @@ module.exports = {
 					pengumuman: '2021-05-27',
 					pesan_lolos: 'selamat sosialisasi',
 					pesan_gagal: 'maaf sosialisasi',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 6,
@@ -64,6 +74,8 @@ module.exports = {
 					pengumuman: '2021-06-28',
 					pesan_lolos: 'selamat pelatihan',
 					pesan_gagal: 'maaf pelatihan',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 7,
@@ -74,6 +86,8 @@ module.exports = {
 					pengumuman: '2021-07-29',
 					pesan_lolos: 'selamat final test',
 					pesan_gagal: 'maaf final test',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 8,
@@ -84,16 +98,20 @@ module.exports = {
 					pengumuman: '2021-08-30',
 					pesan_lolos: 'selamat interview with company',
 					pesan_gagal: 'maaf interview with company',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 9,
 					program_id: 1,
 					stage_id: 9,
-					dimulai: '2021-09-31 00:00:00',
-					berakhir: '2021-09-31 00:00:00',
-					pengumuman: '2021-09-31',
+					dimulai: '2021-10-1 00:00:00',
+					berakhir: '2021-10-1 00:00:00',
+					pengumuman: '2021-10-1',
 					pesan_lolos: 'selamat pemberangkatan',
 					pesan_gagal: 'maaf pemberangkatan',
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

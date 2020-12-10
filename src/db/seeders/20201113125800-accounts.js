@@ -11,12 +11,16 @@ module.exports = {
 					role_id: 1,
 					email: 'emailAdmin@mail.com',
 					password: bcrypt.hashSync('passwardAdmin', bcrypt.genSaltSync(10)),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 2,
 					role_id: 5,
 					email: 'emailPengajar@mail.com',
 					password: bcrypt.hashSync('passwardPengajar', bcrypt.genSaltSync(10)),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 3,
@@ -26,6 +30,8 @@ module.exports = {
 						'passwardPenyeleksi',
 						bcrypt.genSaltSync(10)
 					),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 4,
@@ -35,18 +41,24 @@ module.exports = {
 						'passwardAdminPembayaran',
 						bcrypt.genSaltSync(10)
 					),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 5,
 					role_id: 2,
 					email: 'emailPeserta1@mail.com',
 					password: bcrypt.hashSync('passwardPeserta', bcrypt.genSaltSync(10)),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 				{
 					id: 6,
 					role_id: 2,
 					email: 'emailPeserta2@mail.com',
 					password: bcrypt.hashSync('passwardPeserta', bcrypt.genSaltSync(10)),
+					created_at: '2021-01-01 00:00:00',
+					updated_at: '2021-01-01 00:00:00',
 				},
 			],
 			{}

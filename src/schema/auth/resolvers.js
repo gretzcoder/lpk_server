@@ -1,18 +1,19 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { models } from '../../db'
+import path from 'path'
 
 export async function signUpResolver(parentValue, { ...args }) {
-	const lastRecord = await models.account.create(args)
+	const account = await models.account.create(args)
 
 	await models.profile.create({
-		accountId: lastRecord.id,
+		accountId: account.id,
 		foto: path.join(__dirname, '../../files/fotoProfile/default.png'),
 	})
 
 	const token = jwt.sign({ account }, 'Sup3rDup3rR4h4514', { expiresIn: '24h' })
 	return {
-		lastRecord,
+		account,
 		token,
 	}
 }
